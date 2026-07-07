@@ -1,6 +1,6 @@
+
 /* Importar las variables generadas por Matugen */
 @import "./colors.css";
-
 * {
     font-family: "JetBrainsMono Nerd Font", "SF Pro Display", Roboto, sans-serif;
     font-size: 13px;
@@ -14,49 +14,37 @@
 
 /* Base transparente para el efecto flotante */
 window#waybar {
-    background-color: transparent;
+	background-color: rgba(0,0,0,0.7);
 }
 
 /* Estilo para la pastilla derecha (Aplicado SOLO a la barra superior) */
 window.top .modules-right {
-    background-color: mix(@surface-container-lowest, #000000, 0.5);
-    padding: 10px; 
-    border: 1px solid;
-    border-color: @primary;          
+    background-color: transparent;
     border-radius: 100px;
-}
-
-#hardware {
-	background-color: rgba(0,0,0,0.5);
-    /*background-color: mix(@surface-container-lowest, #000000, 0.5);*/
-    padding: 10px; 
-    /*border: 1px solid;*/
-	border-radius: 20px;
+    margin-right: 24px;
 }
 
 /* --- MÓDULO IZQUIERDO: Logo de Arch --- */
 #custom-arch {
-    background-color: mix(@surface-container-lowest, #000000, 0.5); 
+    background-color: transparent;
     color: @primary;   
     font-size: 20px;   
+    margin-left: 24px;
     padding-left: 13px;
     padding-right: 17px;
-    border-radius: 100%;
-    border: 1px solid;
+    border-radius: 100%;   
     border-color: @primary;        
 }
 
 /* --- MÓDULO IZQUIERDO: Workspaces de Niri (Consolidado y sin duplicados) --- */
-#workspaces {
-    background-color: @primary; 
+#workspaces { 
     border-radius: 20px;
     padding: 2px 0px;          
-    border: 1px solid black;
 }
 
 #workspaces button {
     padding: 4px 10px;
-    color: @background; /* Color apagado por defecto */
+    color: @inverse-surface; /* Color apagado por defecto */
     background-color: transparent;
     border-radius: 120px;         
     transition: all 0.2s ease-in-out;
@@ -65,14 +53,12 @@ window.top .modules-right {
 
 /* El espacio de trabajo actual (Siguiendo la lógica MD3 de píldora seleccionada) */
 #workspaces button.active {
-    color: @inverse-surface;
-    background-color: mix(@surface-container-lowest, #000000, 0.5);  /* Corregido el typo '@primay' */ 
+    color: @primary;
 }
 
 /* Un hover limpio: iluminamos el fondo discretamente */
 #workspaces button:hover {
     color: @inverse-surface;         
-    background-color: mix(@surface-container-lowest, #000000, 0.5);  /* Corregido el typo '@primay' */
 }
 
 /* --- MÓDULO CENTRAL: Reloj --- */
