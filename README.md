@@ -1,1 +1,1 @@
-# May Hyperland Dotfiles
+# May Hyprland Dotfiles
