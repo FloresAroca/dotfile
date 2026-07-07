@@ -1,0 +1,28 @@
+[config]
+reload_apps = true
+
+[templates.hyprland]
+input_path = "~/.config/matugen/templates/colors.lua.template"
+output_path = "~/.config/hypr/colors/colors.lua"
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/colors.conf'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.cava]
+input_path = "~/.config/matugen/templates/cava.template"
+output_path = "~/.config/cava/config"
+post_hook = "killall -USR2 cava || true"
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako'
+output_path = '~/.config/mako/config'
+post_hook = 'makoctl reload'

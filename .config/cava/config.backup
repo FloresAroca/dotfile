@@ -1,0 +1,52 @@
+
+# ███╗░░░███╗░█████╗░████████╗██╗░░░██╗░██████╗░███████╗███╗░░██╗  ░█████╗░░█████╗░██╗░░░░░░█████╗░██████╗░░██████╗
+# ████╗░████║██╔══██╗╚══██╔══╝██║░░░██║██╔════╝░██╔════╝████╗░██║  ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝
+# ██╔████╔██║███████║░░░██║░░░██║░░░██║██║░░██╗░█████╗░░██╔██╗██║  ██║░░╚═╝██║░░██║██║░░░░░██║░░██║██████╔╝╚█████╗░
+# ██║╚██╔╝██║██╔══██║░░░██║░░░██║░░░██║██║░░╚██╗██╔══╝░░██║╚████║  ██║░░██╗██║░░██║██║░░░░░██║░░██║██╔══██╗░╚═══██╗
+# ██║░╚═╝░██║██║░░██║░░░██║░░░╚██████╔╝╚██████╔╝███████╗██║░╚███║  ╚█████╔╝╚█████╔╝███████╗╚█████╔╝██║░░██║██████╔╝
+# ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░░╚═════╝░╚══════╝╚═╝░░╚══╝  ░╚════╝░░╚════╝░╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
+
+
+[general]
+# 144 o la tasa de refresco de tu monitor hace que se vea increíblemente fluido
+framerate = 144
+bars = 0
+
+# Dejar el ancho en automático (comentado) suele encajar mejor con la fuente de Kitty
+# bar_width = 2
+bar_spacing = 1
+
+# Si las barras no suben lo suficiente, sube este valor a 150
+sensitivity = 100
+
+[color]
+background = default
+gradient = 1
+# Reducimos a 3 colores para un degradado más elegante y menos caótico
+gradient_count = 3
+gradient_color_1 = '#bac3ff'
+gradient_color_2 = '#e5bad8'
+gradient_color_3 = '#dee0ff'
+
+[smoothing]
+monstercat = 1
+waves = 0
+
+# MAGIA VISUAL:
+# Reducir la gravedad hace que las barras bajen lentamente (efecto flotante/líquido)
+gravity = 60
+
+# Aumentar la reducción de ruido elimina los saltos erráticos
+noise_reduction = 85
+
+# Suaviza aún más la curva general
+integral = 85
+
+[eq]
+# Balanceador visual: A veces los bajos (izquierda) saturan toda la pantalla 
+# y los agudos (derecha) ni se mueven. Esto lo equilibra.
+1 = 0.8 # Graves (bass)
+2 = 0.9
+3 = 1.0 # Medios
+4 = 1.1
+5 = 1.2 # Agudos (treble)

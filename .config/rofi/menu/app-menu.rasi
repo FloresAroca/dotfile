@@ -1,0 +1,146 @@
+/*
+	███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
+	████╗░████║██╔════╝████╗░██║██║░░░██║
+	██╔████╔██║█████╗░░██╔██╗██║██║░░░██║
+	██║╚██╔╝██║██╔══╝░░██║╚████║██║░░░██║
+	██║░╚═╝░██║███████╗██║░╚███║╚██████╔╝
+	╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░╚═════╝░
+*/
+
+/* ---- General Configuration ---- */
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    icon-theme: "Gruvbox-Plus-Dark";
+    font: "JetBrainsMono Nerd Font 10";
+    drun-display-format: "{name}"; /* Removed {icon} from here since we layout them vertically */
+    display-drun: " ";
+    display-run: " ";
+}
+
+/* ---- Import Colors ---- */
+@import "../colors.rasi"
+
+/* ---- Main Window ---- */
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 750px;       /* Wider window to accommodate the grid layout */
+    height: 520px;      /* Fixed height for a balanced dashboard look */
+    
+    enabled: true;
+    border-radius: 24px; /* Soft, aggressive modern corners */
+    border: 2px solid;
+    border-color: @outline-variant;
+    background-color: @surface;
+    cursor: "default";
+}
+
+/* ---- Main Box (Inner Container) ---- */
+mainbox {
+    enabled: true;
+    spacing: 24px;
+    margin: 0px;
+    padding: 36px;     /* Generous padding for a premium, spacious feel */
+    background-color: transparent;
+    children: [ "inputbar", "listview" ];
+}
+
+/* ---- Input Bar (Search Bar) ---- */
+inputbar {
+    enabled: true;
+    spacing: 12px;
+    margin: 0px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    background-color: @surface-container-highest;
+    text-color: @on-surface;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled: true;
+    background-color: transparent;
+    text-color: @primary;
+    font: "JetBrainsMono Nerd Font 13";
+}
+
+entry {
+    enabled: true;
+    background-color: transparent;
+    text-color: @on-surface;
+    cursor: text;
+    placeholder: "Search applications...";
+    placeholder-color: @outline;
+    vertical-align: 0.5;
+}
+
+/* ---- Grid View ---- */
+listview {
+    enabled: true;
+    columns: 4;        /* 4 Columns instead of a single list row */
+    lines: 3;          /* 3 Rows of applications */
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    
+    spacing: 18px;     /* Significant spacing between grid items */
+    background-color: transparent;
+    text-color: @on-surface;
+    cursor: "default";
+}
+
+/* ---- Grid Elements ---- */
+element {
+    enabled: true;
+    orientation: vertical; /* Stacks the icon directly ABOVE the text */
+    spacing: 14px;
+    margin: 0px;
+    padding: 20px 10px;
+    border: 2px solid;
+    border-color: transparent; /* Transparent border prevents layout shifting on select */
+    border-radius: 18px;
+    background-color: transparent;
+    text-color: @on-surface;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @on-surface;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @on-surface;
+}
+
+/* ---- Premium Selected State ---- */
+element selected.normal {
+    background-color: @surface-container-highest; /* Soft container background instead of solid color */
+    border-color: @primary;                       /* Sharp, modern outline accent */
+    text-color: @on-surface;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 52px;            /* Large, detailed icons taking center stage */
+    cursor: inherit;
+    horizontal-align: 0.5; /* Center the icon horizontally */
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    highlight: inherit;
+    cursor: inherit;
+    horizontal-align: 0.5; /* Center the text horizontally */
+    vertical-align: 0.5;
+}

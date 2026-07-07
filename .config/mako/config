@@ -1,0 +1,64 @@
+
+# ███╗░░░███╗░█████╗░████████╗██╗░░░██╗░██████╗░███████╗███╗░░██╗  ░█████╗░░█████╗░██╗░░░░░░█████╗░██████╗░░██████╗
+# ████╗░████║██╔══██╗╚══██╔══╝██║░░░██║██╔════╝░██╔════╝████╗░██║  ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝
+# ██╔████╔██║███████║░░░██║░░░██║░░░██║██║░░██╗░█████╗░░██╔██╗██║  ██║░░╚═╝██║░░██║██║░░░░░██║░░██║██████╔╝╚█████╗░
+# ██║╚██╔╝██║██╔══██║░░░██║░░░██║░░░██║██║░░╚██╗██╔══╝░░██║╚████║  ██║░░██╗██║░░██║██║░░░░░██║░░██║██╔══██╗░╚═══██╗
+# ██║░╚═╝░██║██║░░██║░░░██║░░░╚██████╔╝╚██████╔╝███████╗██║░╚███║  ╚█████╔╝╚█████╔╝███████╗╚█████╔╝██║░░██║██████╔╝
+# ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░░╚═════╝░╚══════╝╚═╝░░╚══╝  ░╚════╝░░╚════╝░╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
+
+# ~/.config/matugen/templates/mako.conf
+# Generado dinámicamente por matugen — no editar a mano, editar este template
+
+# --- Geometría / layout ---
+layer=overlay
+anchor=top-right
+sort=-time
+max-visible=5
+outer-margin=12
+margin=8
+padding=14,18
+width=380
+height=120
+border-size=2
+border-radius=18
+icons=1
+max-icon-size=48
+icon-path=/usr/share/icons/Papirus-Dark
+
+# --- Tipografía ---
+font=JetBrainsMono Nerd Font 11
+markup=1
+
+# --- Tiempos ---
+default-timeout=6000
+ignore-timeout=0
+
+# --- Colores base (con alpha para transparencia tipo "glass") ---
+background-color=#0e1415E6
+text-color=#dee4e4
+border-color=#81d3df
+progress-color=over #81d3df99
+
+# --- Formato del contenido ---
+format=<b>%s</b>\n%b
+
+[urgency=low]
+border-color=#899294
+background-color=#3f484aD9
+text-color=#bec8ca
+default-timeout=4000
+
+[urgency=normal]
+border-color=#81d3df
+background-color=#0e1415E6
+text-color=#dee4e4
+
+[urgency=critical]
+border-color=#ffb4ab
+background-color=#93000aF0
+text-color=#ffdad6
+border-size=3
+default-timeout=0
+
+[mode=do-not-disturb]
+invisible=1

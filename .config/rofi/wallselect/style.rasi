@@ -1,0 +1,118 @@
+// ░██████╗████████╗██╗░░░██╗██╗░░░░░███████╗░██████╗  ███████╗░█████╗░██████╗░
+// ██╔════╝╚══██╔══╝╚██╗░██╔╝██║░░░░░██╔════╝██╔════╝  ██╔════╝██╔══██╗██╔══██╗
+// ╚█████╗░░░░██║░░░░╚████╔╝░██║░░░░░█████╗░░╚█████╗░  █████╗░░██║░░██║██████╔╝
+// ░╚═══██╗░░░██║░░░░░╚██╔╝░░██║░░░░░██╔══╝░░░╚═══██╗  ██╔══╝░░██║░░██║██╔══██╗
+// ██████╔╝░░░██║░░░░░░██║░░░███████╗███████╗██████╔╝  ██║░░░░░╚█████╔╝██║░░██║
+// ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝╚═════╝░  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝
+
+// ░██╗░░░░░░░██╗░█████╗░██╗░░░░░██╗░░░░░░██████╗███████╗██╗░░░░░███████╗░█████╗░████████╗
+// ░██║░░██╗░░██║██╔══██╗██║░░░░░██║░░░░░██╔════╝██╔════╝██║░░░░░██╔════╝██╔══██╗╚══██╔══╝
+// ░╚██╗████╗██╔╝███████║██║░░░░░██║░░░░░╚█████╗░█████╗░░██║░░░░░█████╗░░██║░░╚═╝░░░██║░░░
+// ░░████╔═████║░██╔══██║██║░░░░░██║░░░░░░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░██║░░██╗░░░██║░░░
+// ░░╚██╔╝░╚██╔╝░██║░░██║███████╗███████╗██████╔╝███████╗███████╗███████╗╚█████╔╝░░░██║░░░
+// ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░╚══════╝╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░
+
+configuration {
+    show-icons:           true;
+    display-drun:         "";
+    display-filebrowser:  "";
+    display-window:       "";
+    drun-display-format:  "{name}";
+    font:                 "JetBrainsMono Nerd Font 10";
+}
+
+@import "../colors.rasi"
+
+/* Main Window Setup */
+window {
+    enabled:              true;
+    fullscreen:           false;
+    location:             center;      /* Centers the panel on screen */
+    width:                90%;         /* Gives a clean floating dock appearance */
+    max-width:            1400px;      /* Prevents over-stretching on ultrawide monitors */
+    transparency:         "real";
+    cursor:               "default";
+    spacing:              0px;
+    padding:              20px;
+    border:               2px;
+    border-color:         @primary;    /* Frame border matching your accent color */
+    border-radius:        20px;        /* Smooth modern corners */
+    background-color:     @surface;
+}
+
+/* Main Box Container */
+mainbox {
+    enabled:              true;
+    children:             [ "listview" ];
+    background-color:     transparent;
+}
+
+/* Wallpaper Grid Layout */
+listview {
+    enabled:              true;
+    columns:              6;
+    lines:                1;
+    spacing:              20px;
+    padding:              10px;
+    cycle:                true;
+    dynamic:              false;
+    scrollbar:            false;
+    layout:               vertical;
+    reverse:              false;
+    fixed-height:         true;
+    fixed-columns:        true;
+    cursor:               "default";
+    background-color:     transparent;
+    text-color:           @on-surface;
+}
+
+/* Individual Wallpaper Element Slot */
+element {
+    enabled:              true;
+    orientation:          vertical;
+    children:             [ "element-icon" ]; /* Only renders the icon, removing the text below */
+    spacing:              0px;
+    padding:              15px;
+    border-radius:        16px;
+    border:               2px;
+    border-color:         transparent;
+    cursor:               pointer;
+    background-color:     transparent;
+    text-color:           @on-surface;
+}
+
+/* Normal State */
+element normal.normal {
+    background-color:     transparent;
+}
+
+/* Selected State Style */
+element selected.normal {
+    background-color:     @bg-alt;     /* Subtle contrast background behind the image */
+    border-color:         @primary;    /* Accent color border around the selection */
+}
+
+/* Image Thumbnail Properties */
+element-icon {
+    size:                 200px;
+    cursor:               inherit;
+    border-radius:        12px;        /* Inner rounding for the images */
+    background-color:     transparent;
+    text-color:           inherit;
+}
+
+/* Error Handling UI */
+error-message {
+    text-color:           @on-surface;
+    background-color:     @surface;
+    children:             [ "textbox" ];
+}
+
+textbox {
+    text-color:           inherit;
+    background-color:     inherit;
+    vertical-align:       0.5;
+    horizontal-align:     0.5;
+}
+
+

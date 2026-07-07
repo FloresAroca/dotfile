@@ -1,0 +1,10 @@
+[general]
+bars = 12
+
+[output]
+# Cambiamos "raw" por "noncurses" para que escupa los caracteres directamente
+method = noncurses
+
+[bar]
+# Asegúrate de que el primer carácter sea un espacio en blanco
+data_chars =  ,▂,▃,▄,▅,▆,▇,█
