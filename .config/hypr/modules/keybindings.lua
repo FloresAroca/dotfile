@@ -22,7 +22,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))   -- dwindle only
 
 -- ---- Terminal Apps ---------------------------------------------------
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(p.terminal .. " --hold fastfetch"))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(p.terminal .. " --hold fastfetch --config ~/.config/fastfetch/os.jsonc"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(p.terminal .. " --hold cava"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(p.terminal .. " --hold peaclock"))
 
@@ -30,7 +30,10 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(p.terminal .. " --hold peaclock"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(p.file_manager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(p.menu))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(p.wallpaper))
-
+hl.bind(
+    mainMod .. " + A",
+    hl.dsp.exec_cmd("~/.config/scripts/random-wallpaper.sh")
+)
 -- ---- Session ------------------------------------------------
 hl.bind(
     mainMod .. " + M",

@@ -33,3 +33,5 @@ source /usr/share/fzf/completion.zsh
 
 alias ls="eza --icons --group-directories-first --color=always"
 alias ll="eza -lh --icons --group-directories-first"
+
+alias fetchos="fastfetch --config ~/.config/fastfetch/os.jsonc"

@@ -16,16 +16,16 @@ local colors = require("colors/colors")
 -- ---- General ------------------------------------------------
 hl.config({
     general = {
-        gaps_in = 2,
+        gaps_in = 4,
         -- gaps_out    = 20,
 		gaps_out = {
 	        top    = 5,
-	        right  = 30,
+	        right  = 5,
 	        bottom = 5,
-	        left   = 30
+	        left   = 5
 	    },
 
-        border_size = 1,
+        border_size = 0,
         
 		col = {
 		    -- Borde activo simple
@@ -44,8 +44,8 @@ hl.config({
 -- ---- Decoration ---------------------------------------------
 hl.config({
     decoration = {
-        rounding       = 20,
-        rounding_power = 4.0,
+        rounding       = 5,
+        rounding_power = 3.0,
 
         active_opacity   = 1,
         inactive_opacity = 0.9,
@@ -59,7 +59,7 @@ hl.config({
         },
 
         blur = {
-            enabled  = true,
+            enabled  = false,
             size     = 4,
             passes   = 2,
             vibrancy = 0.1696,

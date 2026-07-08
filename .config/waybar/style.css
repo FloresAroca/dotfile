@@ -14,7 +14,7 @@
 
 /* Base transparente para el efecto flotante */
 window#waybar {
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.99);
 }
 
 /* Estilo para la pastilla derecha (Aplicado SOLO a la barra superior) */

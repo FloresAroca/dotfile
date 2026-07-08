@@ -8,7 +8,7 @@
 -- ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░░╚═════╝░╚══════╝╚═╝░░╚══╝  ░╚════╝░░╚════╝░╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
 
 return {
-  primary = "rgb(81d3df)",
-  primary_container = "rgb(004f57)",
-  outline = "rgb(899294)"
+  primary = "rgb(96cdf8)",
+  primary_container = "rgb(004b6f)",
+  outline = "rgb(8b9198)"
 }
