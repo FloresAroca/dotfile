@@ -1,71 +1,75 @@
-
 /* Importar las variables generadas por Matugen */
 @import "./colors.css";
 * {
-    font-family: "JetBrainsMono Nerd Font", "SF Pro Display", Roboto, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    padding: 0;
-    margin: 0;
+  font-family: "JetBrainsMono Nerd Font", "SF Pro Display", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* Base transparente para el efecto flotante */
 window#waybar {
-	background-color: rgba(0,0,0,0.99);
+  background-color: @background;
+  border-radius: 0px;
+  border: 0px solid #ccc;
+  /*border-top: 2px solid @outline;
+  border-right: 2px solid @primary;
+  border-bottom: 2px solid @primary;*/
 }
 
 /* Estilo para la pastilla derecha (Aplicado SOLO a la barra superior) */
 window.top .modules-right {
-    background-color: transparent;
-    border-radius: 100px;
-    margin-right: 24px;
+  background-color: transparent;
+  border-radius: 100px;
+  margin-right: 24px;
 }
 
 /* --- MÓDULO IZQUIERDO: Logo de Arch --- */
 #custom-arch {
-    background-color: transparent;
-    color: @primary;   
-    font-size: 20px;   
-    margin-left: 24px;
-    padding-left: 13px;
-    padding-right: 17px;
-    border-radius: 100%;   
-    border-color: @primary;        
+  background-color: transparent;
+  color: @primary;
+  font-size: 20px;
+  margin-left: 24px;
+  padding-left: 13px;
+  padding-right: 17px;
+  border-radius: 100%;
+  border-color: @primary;
 }
 
 /* --- MÓDULO IZQUIERDO: Workspaces de Niri (Consolidado y sin duplicados) --- */
-#workspaces { 
-    border-radius: 20px;
-    padding: 2px 0px;          
+#workspaces {
+  border-radius: 20px;
+  padding: 2px 0px;
 }
 
 #workspaces button {
-    padding: 4px 10px;
-    color: @inverse-surface; /* Color apagado por defecto */
-    background-color: transparent;
-    border-radius: 120px;         
-    transition: all 0.2s ease-in-out;
-    margin: 0 3px;
+  padding: 4px 10px;
+  color: @inverse-surface; /* Color apagado por defecto */
+  background-color: transparent;
+  border-radius: 120px;
+  transition: all 0.2s ease-in-out;
+  margin: 0 3px;
 }
 
 /* El espacio de trabajo actual (Siguiendo la lógica MD3 de píldora seleccionada) */
 #workspaces button.active {
-    color: @primary;
+  color: @primary;
 }
 
 /* Un hover limpio: iluminamos el fondo discretamente */
 #workspaces button:hover {
-    color: @inverse-surface;         
+  color: @inverse-surface;
 }
 
 /* --- MÓDULO CENTRAL: Reloj --- */
 #clock {
-    color: @primary;
-    font-weight: 800;
-    padding: 0 4px;
+  color: @primary;
+  font-weight: 800;
+  padding: 0 4px;
 }
 
 /* --- MÓDULO DERECHO: Indicadores --- */
@@ -75,52 +79,52 @@ window.top .modules-right {
 #memory,
 #temperature,
 #tray {
-    padding: 0 8px;
+  padding: 0 8px;
 }
 
 #pulseaudio {
-    color: @secondary;
+  color: @secondary;
 }
 
 #cpu {
-    color: @secondary; 
+  color: @secondary;
 }
 
 #memory {
-    color: @tertiary;  
+  color: @tertiary;
 }
 
 #battery {
-    color: @tertiary;
+  color: @tertiary;
 }
 
 #temperature {
-    color: @primary;   
+  color: @primary;
 }
 
 /* Estados críticos (Batería y Temperatura) */
 #battery.critical:not(.charging),
 #temperature.critical {
-    color: @error;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @error;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #tray {
-    color: @on-surface;
+  color: @on-surface;
 }
 
 /* --- BONUS: Tooltips nativos de MD3 --- */
 tooltip {
-    background-color: @inverse-surface;
-    border: 1px solid @outline;
-    border-radius: 8px;
+  background-color: @inverse-surface;
+  border: 1px solid @outline;
+  border-radius: 8px;
 }
 
 tooltip label {
-    color: @inverse-on-surface;
-    padding: 4px;
+  color: @inverse-on-surface;
+  padding: 4px;
 }

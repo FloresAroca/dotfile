@@ -28,10 +28,10 @@ window {
     anchor: center;
     fullscreen: false;
     width: 750px;       /* Wider window to accommodate the grid layout */
-    height: 520px;      /* Fixed height for a balanced dashboard look */
+    height: 439px;      /* Fixed height for a balanced dashboard look */
     
     enabled: true;
-    border-radius: 24px; /* Soft, aggressive modern corners */
+    border-radius: 20px; /* Soft, aggressive modern corners */
     border: 2px solid;
     border-color: @outline-variant;
     background-color: @surface;

@@ -8,7 +8,14 @@
 -- ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░░╚═════╝░╚══════╝╚═╝░░╚══╝  ░╚════╝░░╚════╝░╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
 
 return {
-  primary = "rgb(96cdf8)",
-  primary_container = "rgb(004b6f)",
-  outline = "rgb(8b9198)"
+  primary = "0xffffb68f",
+  primary_container = "0xff703714",
+  
+  secondary = "0xffe6beab",
+  secondary_container = "0xff5c4132",
+  tertiary = "0xffcec891",
+  tertiary_container = "0xff4b481d",
+  error = "0xffffb4ab",
+  
+  outline = "0xff9f8d84"
 }

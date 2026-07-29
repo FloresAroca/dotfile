@@ -1,0 +1,22 @@
+{
+  "layer": "top",
+  "position": "left",
+
+  "width": 70,
+  "height": 500,
+
+  "modules-center": ["cpu", "memory", "disk", "custom/gpu"],
+
+  "cpu": {
+    "format": "\n{usage}%",
+  },
+
+  "memory": {
+    "format": "󰍛\n{percentage}%",
+  },
+
+  "disk": {
+    "path": "/",
+    "format": "💾\n{percentage_used}%",
+  },
+}
