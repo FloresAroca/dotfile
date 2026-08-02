@@ -1,8 +1,7 @@
 # May Hyprland Dotfiles
 
-Personal configuration for my development environment on **Linux**
 ![Preview](assets/preview.png)
-
+![Preview2](assets/preview2.png)
 ---
 
 ## 💻 Stack & Tools
