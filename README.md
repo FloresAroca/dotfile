@@ -25,6 +25,7 @@ sudo pacman -S hyprland hyorlock waybar mako kitty rofi-wayland cava fastfetch a
 - **Copy and paste the configuration files:**
 
 ```bash
+cd dotfiles
 cp -r .config/* $HOME/.config/
 cp .zshrc $HOME/.config/
 ```
