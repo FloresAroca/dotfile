@@ -1,5 +1,5 @@
-/* Importar las variables generadas por Matugen */
 @import "./colors.css";
+
 * {
   font-family: "JetBrainsMono Nerd Font", "SF Pro Display", Roboto, sans-serif;
   font-size: 13px;
@@ -11,72 +11,74 @@
   margin: 0;
 }
 
-/* Base transparente para el efecto flotante */
 window#waybar {
   background-color: @background;
-  border-radius: 0px;
+  border-radius: 20px;
   border: 0px solid #ccc;
   /*border-top: 2px solid @outline;
   border-right: 2px solid @primary;
   border-bottom: 2px solid @primary;*/
 }
 
-/* Estilo para la pastilla derecha (Aplicado SOLO a la barra superior) */
-window.top .modules-right {
+window.top,
+.modules-left,
+.modules-center,
+.modules-right {
   background-color: transparent;
   border-radius: 100px;
-  margin-right: 24px;
+  padding: 0 10px;
 }
 
-/* --- MÓDULO IZQUIERDO: Logo de Arch --- */
 #custom-arch {
-  background-color: transparent;
   color: @primary;
   font-size: 20px;
-  margin-left: 24px;
   padding-left: 13px;
   padding-right: 17px;
   border-radius: 100%;
   border-color: @primary;
 }
 
-/* --- MÓDULO IZQUIERDO: Workspaces de Niri (Consolidado y sin duplicados) --- */
 #workspaces {
   border-radius: 20px;
   padding: 2px 0px;
 }
 
 #workspaces button {
-  padding: 4px 10px;
-  color: @inverse-surface; /* Color apagado por defecto */
+  padding: 0px 5px;
+  color: @inverse-surface;
   background-color: transparent;
   border-radius: 120px;
   transition: all 0.2s ease-in-out;
   margin: 0 3px;
 }
 
-/* El espacio de trabajo actual (Siguiendo la lógica MD3 de píldora seleccionada) */
 #workspaces button.active {
   color: @primary;
 }
 
-/* Un hover limpio: iluminamos el fondo discretamente */
 #workspaces button:hover {
   color: @inverse-surface;
 }
 
-/* --- MÓDULO CENTRAL: Reloj --- */
 #clock {
   color: @primary;
   font-weight: 800;
-  padding: 0 4px;
+  padding: 2px 12px;
+  border-radius: 100px;
+  margin: 3px 0;
+  transition: all 0.2s ease-in-out;
 }
 
-/* --- MÓDULO DERECHO: Indicadores --- */
+#clock:hover {
+  background-color: @primary-container;
+  color: @on-primary-container;
+}
+
 #pulseaudio,
 #battery,
 #cpu,
 #memory,
+#network,
 #temperature,
 #tray {
   padding: 0 8px;
@@ -94,6 +96,10 @@ window.top .modules-right {
   color: @tertiary;
 }
 
+#network {
+  color: @primary;
+}
+
 #battery {
   color: @tertiary;
 }
@@ -102,7 +108,6 @@ window.top .modules-right {
   color: @primary;
 }
 
-/* Estados críticos (Batería y Temperatura) */
 #battery.critical:not(.charging),
 #temperature.critical {
   color: @error;
@@ -117,14 +122,16 @@ window.top .modules-right {
   color: @on-surface;
 }
 
-/* --- BONUS: Tooltips nativos de MD3 --- */
 tooltip {
-  background-color: @inverse-surface;
-  border: 1px solid @outline;
-  border-radius: 8px;
+  background-color: @surface-container-high;
+  border: 1px solid @outline-variant;
+  border-radius: 16px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 tooltip label {
-  color: @inverse-on-surface;
-  padding: 4px;
+  color: @on-surface;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  padding: 6px 8px;
 }

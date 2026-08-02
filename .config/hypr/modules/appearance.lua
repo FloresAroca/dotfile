@@ -25,24 +25,23 @@ hl.config({
 			left = 5,
 		},
 
-		border_size = 1,
-	
+		border_size = 0,
+
 		col = {
 			-- Al pasar los colores dentro de una tabla {}, Hyprland interpreta el degradado de forma interna
-			active_border = { 
-				colors = { colors.primary, colors.error }, 
-				angle = 25 
+			active_border = {
+				colors = { colors.primary, colors.error },
+				angle = 25,
 			},
 			inactive_border = colors.outline,
 		},
-		
 
---		col = {
-			-- Borde activo simple
-			-- active_border = colors.primary .. " ".. colors.primary_container .. " 45deg",
-			--active_border = colors.primary .. " " .. colors.outline .. " 45deg",
---			inactive_border = colors.outline,
---		},
+		--		col = {
+		-- Borde activo simple
+		-- active_border = colors.primary .. " ".. colors.primary_container .. " 45deg",
+		--active_border = colors.primary .. " " .. colors.outline .. " 45deg",
+		--			inactive_border = colors.outline,
+		--		},
 
 		-- Allow resizing windows by dragging on borders/gaps
 		resize_on_border = false,
@@ -55,8 +54,8 @@ hl.config({
 -- ---- Decoration ---------------------------------------------
 hl.config({
 	decoration = {
-		rounding = 4, -- 5
-		rounding_power = 12, -- 3.0
+		rounding = 15, -- 5
+		rounding_power = 3, -- 3.0
 
 		active_opacity = 1,
 		inactive_opacity = 1,
@@ -75,7 +74,7 @@ hl.config({
 			size = 6,
 			passes = 2,
 			new_optimizations = true,
-			xray = true, 
+			xray = true,
 			vibrancy = 0.3002, --0.1696
 		},
 	},

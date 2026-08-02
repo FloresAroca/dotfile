@@ -92,10 +92,12 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), locked)
 -- ---- Screenshot keys | hyprshot ----------------------------------
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("hyprshot -m window"))
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output"))
+hl.bind(mainMod .. " + CTRL + SPACE", hl.dsp.exec_cmd("hyprshot -m output"))
 
 -- ---- Wlogout keys ----------------------------------
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("wlogout --buttons-per-row 3"))
 
 -- ---- Waybar key -------------------------------------
-hl.bind("SUPER + B", hl.dsp.exec_cmd("pkill waybar || waybar &"))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill waybar"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("~/.config/waybar/scripts/toggle_top_bar.sh"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.config/waybar/scripts/toggle_bottom_bar.sh"))
