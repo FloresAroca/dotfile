@@ -31,7 +31,7 @@ if ! pgrep -x "awww" > /dev/null; then
 fi
 
 awww img "$SELECTED" \
-  --transition-type=center --transition-pos 1,0  --transition-duration=2.5 --transition-step=255 --transition-fps=100
+  --transition-type=center --transition-pos 1,0 --transition-duration=1.5 --transition-step=255 --transition-fps=100
 
 cp "$SELECTED" ~/.config/rofi/anime-girl-red-eyes.jpg
 

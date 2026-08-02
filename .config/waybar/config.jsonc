@@ -4,13 +4,13 @@
         "position": "top",
         "height": 40,
         "modules-left": [
-            "custom/arch",
-            "tray"
+            "custom/arch"
         ],
         "modules-center": [
             "clock"
         ],
         "modules-right": [
+        	"tray",
             "hyprland/workspaces"
         ],
         "cpu": {
@@ -100,6 +100,15 @@
         "tray": {
             "icon-size": 16,
             "spacing": 10
+        },
+        "custom/spotify-controls": {
+            "format": "󰒮      ",
+            "return-type": "json",
+            "exec": "~/.config/waybar/scripts/spotify-controls.sh",
+            "interval": 1,
+            "on-click": "~/.config/waybar/scripts/spotify-click.sh play",
+            "on-click-middle": "~/.config/waybar/scripts/spotify-click.sh next",
+            "on-click-right": "~/.config/waybar/scripts/spotify-click.sh previous"
         }
     },
     {
