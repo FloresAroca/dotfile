@@ -1,0 +1,21 @@
+
+@import "../colors.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font Bold 10";
+}
+
+window {
+    enabled:              true;
+    fullscreen:           false;
+    location:             center;
+    anchor:               center;
+    width:                94%;
+    max-width:            1550px;
+    transparency:         "real";
+    cursor:               "default";
+    spacing:              0px;
+    padding:              24px 12px;
+    border:               0px;
+    background-color:     transparent;
+}

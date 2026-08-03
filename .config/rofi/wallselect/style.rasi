@@ -1,61 +1,79 @@
-// ░██████╗████████╗██╗░░░██╗██╗░░░░░███████╗░██████╗  ███████╗░█████╗░██████╗░
-// ██╔════╝╚══██╔══╝╚██╗░██╔╝██║░░░░░██╔════╝██╔════╝  ██╔════╝██╔══██╗██╔══██╗
-// ╚█████╗░░░░██║░░░░╚████╔╝░██║░░░░░█████╗░░╚█████╗░  █████╗░░██║░░██║██████╔╝
-// ░╚═══██╗░░░██║░░░░░╚██╔╝░░██║░░░░░██╔══╝░░░╚═══██╗  ██╔══╝░░██║░░██║██╔══██╗
-// ██████╔╝░░░██║░░░░░░██║░░░███████╗███████╗██████╔╝  ██║░░░░░╚█████╔╝██║░░██║
-// ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝╚═════╝░  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝
-
-// ░██╗░░░░░░░██╗░█████╗░██╗░░░░░██╗░░░░░░██████╗███████╗██╗░░░░░███████╗░█████╗░████████╗
-// ░██║░░██╗░░██║██╔══██╗██║░░░░░██║░░░░░██╔════╝██╔════╝██║░░░░░██╔════╝██╔══██╗╚══██╔══╝
-// ░╚██╗████╗██╔╝███████║██║░░░░░██║░░░░░╚█████╗░█████╗░░██║░░░░░█████╗░░██║░░╚═╝░░░██║░░░
-// ░░████╔═████║░██╔══██║██║░░░░░██║░░░░░░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░██║░░██╗░░░██║░░░
-// ░░╚██╔╝░╚██╔╝░██║░░██║███████╗███████╗██████╔╝███████╗███████╗███████╗╚█████╔╝░░░██║░░░
-// ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░╚══════╝╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░
-
-configuration {
-    show-icons:           true;
-    display-drun:         "";
-    display-filebrowser:  "";
-    display-window:       "";
-    drun-display-format:  "{name}";
-    font:                 "JetBrainsMono Nerd Font 10";
-}
+/* WallSelect - Floating Carousel Theme (matching img-ejemplo.png) */
 
 @import "../colors.rasi"
+
+* {
+    font:                 "JetBrainsMono Nerd Font Bold 10";
+}
 
 /* Main Window Setup */
 window {
     enabled:              true;
     fullscreen:           false;
-    location:             center;      /* Centers the panel on screen */
-    width:                90%;         /* Gives a clean floating dock appearance */
-    max-width:            1400px;      /* Prevents over-stretching on ultrawide monitors */
+    location:             center;
+    anchor:               center;
+    width:                94%;
+    max-width:            1550px;
     transparency:         "real";
     cursor:               "default";
     spacing:              0px;
-    padding:              20px;
-    border:               2px;
-    border-color:         @primary;    /* Frame border matching your accent color */
-    border-radius:        20px;        /* Smooth modern corners */
-    background-color:     @surface;
+    padding:              24px 12px;
+    border:               0px;
+    background-color:     transparent;
 }
 
 /* Main Box Container */
 mainbox {
     enabled:              true;
-    children:             [ "listview" ];
+    spacing:              10px;
+    children:             [ "inputbar", "listview" ];
     background-color:     transparent;
 }
 
-/* Wallpaper Grid Layout */
+/* Top Floating Pill Header Bar */
+inputbar {
+    enabled:              true;
+    margin:               0px 25%;
+    spacing:              12px;
+    padding:              8px 18px;
+    border-radius:        20px;
+    border:               1px;
+    border-color:         @outline-variant;
+    background-color:     @surface-container-high;
+    text-color:           @on-surface;
+    children:             [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:              true;
+    padding:              2px 12px;
+    border-radius:        20px;
+    background-color:     @primary-container;
+    text-color:           @on-primary-container;
+    font:                 "JetBrainsMono Nerd Font Bold 10";
+}
+
+entry {
+    enabled:              true;
+    background-color:     transparent;
+    text-color:           @on-surface;
+    cursor:               text;
+    placeholder:          "SEARCH_WALLPAPER // INPUT...";
+    placeholder-color:    @outline;
+    font:                 "JetBrainsMono Nerd Font SemiBold 10";
+    horizontal-align:     0.5;
+    vertical-align:       0.5;
+}
+
+/* Horizontal Strip Carousel Listview */
 listview {
     enabled:              true;
-    columns:              6;
+    columns:              5;
     lines:                1;
-    spacing:              20px;
-    padding:              10px;
+    spacing:              5px;
+    padding:              0px 4px;
     cycle:                true;
-    dynamic:              false;
+    dynamic:              true;
     scrollbar:            false;
     layout:               vertical;
     reverse:              false;
@@ -66,42 +84,52 @@ listview {
     text-color:           @on-surface;
 }
 
-/* Individual Wallpaper Element Slot */
+/* Individual Vertical Wallpaper Strip Card */
 element {
     enabled:              true;
     orientation:          vertical;
-    children:             [ "element-icon" ]; /* Only renders the icon, removing the text below */
-    spacing:              0px;
-    padding:              15px;
-    border-radius:        16px;
-    border:               2px;
+    children:             [ "element-icon", "element-text" ];
+    spacing:              8px;
+    padding:              8px;
+    border-radius:        20px;
+    border:               1px;
     border-color:         transparent;
     cursor:               pointer;
-    background-color:     transparent;
+    background-color:     @surface-container-low;
     text-color:           @on-surface;
 }
 
-/* Normal State */
 element normal.normal {
+    background-color:     @surface-container-low;
+    text-color:           @on-surface;
+}
+
+element selected.normal {
+    background-color:     @primary-container;
+    border:               1px;
+    border-color:         @primary;
+    text-color:           @on-primary-container;
+}
+
+element-icon {
+    size:                 430px;
+    cursor:               inherit;
+    border-radius:        2px;
+    horizontal-align:     0.5;
+    vertical-align:       0.5;
     background-color:     transparent;
 }
 
-/* Selected State Style */
-element selected.normal {
-    background-color:     @bg-alt;     /* Subtle contrast background behind the image */
-    border-color:         @primary;    /* Accent color border around the selection */
-}
-
-/* Image Thumbnail Properties */
-element-icon {
-    size:                 200px;
+element-text {
+    vertical-align:       0.5;
+    horizontal-align:     0.5;
     cursor:               inherit;
-    border-radius:        12px;        /* Inner rounding for the images */
     background-color:     transparent;
     text-color:           inherit;
+    font:                 "JetBrainsMono Nerd Font Bold 9";
 }
 
-/* Error Handling UI */
+/* Error Message UI */
 error-message {
     text-color:           @on-surface;
     background-color:     @surface;
@@ -114,5 +142,3 @@ textbox {
     vertical-align:       0.5;
     horizontal-align:     0.5;
 }
-
-

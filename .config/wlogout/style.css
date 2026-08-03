@@ -1,0 +1,85 @@
+/* --- CONFIGURACIÓN BASE --- */
+* {
+    background-image: none;
+    box-shadow: none;
+    /* Si usas alguna fuente específica para tu entorno, ponla aquí */
+    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif; 
+}
+
+/* --- FONDO DEL MENÚ --- */
+window {
+    /* Un tono gris oscuro cálido (Gruvbox bg) con bastante transparencia */
+    background-color: rgba(40, 40, 40, 0.5); 
+}
+
+/* --- TARJETAS DE LOS BOTONES --- */
+button {
+    border-radius: 24px;
+    border: 2px solid rgba(235, 219, 178, 0.1); /* Borde sutil color arena */
+    color: #ebdbb2; /* Texto color arena suave */
+    background-color: rgba(60, 56, 54, 0.6); /* Fondo de tarjeta un poco más claro */
+    margin: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%; /* Íconos ligeramente más pequeños para más elegancia */
+    
+    /* Transiciones suaves para los efectos hover */
+    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Estado activo/focus general por si navegas con teclado */
+button:focus, button:active {
+    outline-style: none;
+}
+
+/* --- EFECTOS HOVER INDIVIDUALES (Colores Gruvbox) --- */
+
+/* Bloquear (Azul suave) */
+#lock:hover {
+    background-color: rgba(131, 165, 152, 0.3);
+    border: 2px solid rgba(131, 165, 152, 0.8);
+    color: #83a598;
+}
+
+/* Cerrar sesión (Amarillo cálido) */
+#logout:hover {
+    background-color: rgba(250, 189, 47, 0.3);
+    border: 2px solid rgba(250, 189, 47, 0.8);
+    color: #fabd2f;
+}
+
+/* Suspender (Morado) */
+#suspend:hover {
+    background-color: rgba(177, 98, 134, 0.3);
+    border: 2px solid rgba(177, 98, 134, 0.8);
+    color: #b16286;
+}
+
+/* Hibernar (Aqua/Verde agua) */
+#hibernate:hover {
+    background-color: rgba(104, 157, 106, 0.3);
+    border: 2px solid rgba(104, 157, 106, 0.8);
+    color: #689d6a;
+}
+
+/* Reiniciar (Naranja) */
+#reboot:hover {
+    background-color: rgba(254, 128, 25, 0.3);
+    border: 2px solid rgba(254, 128, 25, 0.8);
+    color: #fe8019;
+}
+
+/* Apagar (Rojo) */
+#shutdown:hover {
+    background-color: rgba(251, 73, 52, 0.3);
+    border: 2px solid rgba(251, 73, 52, 0.8);
+    color: #fb4934;
+}
+
+/* --- RUTAS DE LOS ÍCONOS --- */
+#lock { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#hibernate { background-image: image(url("/usr/share/wlogout/icons/hibernate.png")); }
+#reboot { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
