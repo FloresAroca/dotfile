@@ -3,22 +3,12 @@
 // ╚█████╗░░░░██║░░░░╚████╔╝░██║░░░░░█████╗░░╚█████╗░  █████╗░░██║░░██║██████╔╝
 // ░╚═══██╗░░░██║░░░░░╚██╔╝░░██║░░░░░██╔══╝░░░╚═══██╗  ██╔══╝░░██║░░██║██╔══██╗
 // ██████╔╝░░░██║░░░░░░██║░░░███████╗███████╗██████╔╝  ██║░░░░░╚█████╔╝██║░░██║
-// ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝╚═════╝░  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝
-
-// ░██╗░░░░░░░██╗░█████╗░██╗░░░░░██╗░░░░░░██████╗███████╗██╗░░░░░███████╗░█████╗░████████╗
-// ░██║░░██╗░░██║██╔══██╗██║░░░░░██║░░░░░██╔════╝██╔════╝██║░░░░░██╔════╝██╔══██╗╚══██╔══╝
-// ░╚██╗████╗██╔╝███████║██║░░░░░██║░░░░░╚█████╗░█████╗░░██║░░░░░█████╗░░██║░░╚═╝░░░██║░░░
-// ░░████╔═████║░██╔══██║██║░░░░░██║░░░░░░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░██║░░██╗░░░██║░░░
-// ░░╚██╔╝░╚██╔╝░██║░░██║███████╗███████╗██████╔╝███████╗███████╗███████╗╚█████╔╝░░░██║░░░
-// ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░╚══════╝╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░
+// ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝╚═════╝░  ╚═╝░░░░░╚════╝░╚═╝░░╚═╝
 
 configuration {
     show-icons:           true;
-    display-drun:         "";
-    display-filebrowser:  "";
-    display-window:       "";
-    drun-display-format:  "{name}";
     font:                 "JetBrainsMono Nerd Font 10";
+    drun-display-format:  "{name}";
 }
 
 @import "../colors.rasi"
@@ -27,35 +17,64 @@ configuration {
 window {
     enabled:              true;
     fullscreen:           false;
-    location:             center;      /* Centers the panel on screen */
-    width:                90%;         /* Gives a clean floating dock appearance */
-    max-width:            1400px;      /* Prevents over-stretching on ultrawide monitors */
+    location:             center;
+    anchor:               center;
+    width:                1240px;
     transparency:         "real";
     cursor:               "default";
     spacing:              0px;
     padding:              20px;
     border:               2px;
-    border-color:         @primary;    /* Frame border matching your accent color */
-    border-radius:        20px;        /* Smooth modern corners */
+    border-color:         @primary;
+    border-radius:        20px;
     background-color:     @surface;
 }
 
-/* Main Box Container */
+/* Main Container */
 mainbox {
     enabled:              true;
-    children:             [ "listview" ];
+    orientation:          vertical;
+    spacing:              18px;
     background-color:     transparent;
+    children:             [ "inputbar", "listview" ];
+}
+
+/* Input / Search Bar Header */
+inputbar {
+    enabled:              true;
+    spacing:              10px;
+    padding:              12px 18px;
+    border-radius:        14px;
+    background-color:     @surface-container-high;
+    text-color:           @on-surface;
+    children:             [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:              true;
+    background-color:     transparent;
+    text-color:           @primary;
+    font:                 "JetBrainsMono Nerd Font Bold 10";
+}
+
+entry {
+    enabled:              true;
+    background-color:     transparent;
+    text-color:           @on-surface;
+    placeholder:          "Search wallpapers...";
+    placeholder-color:    @outline;
+    cursor:               text;
 }
 
 /* Wallpaper Grid Layout */
 listview {
     enabled:              true;
-    columns:              6;
-    lines:                1;
-    spacing:              20px;
-    padding:              10px;
+    columns:              5;
+    lines:                2;
+    spacing:              16px;
+    padding:              4px;
     cycle:                true;
-    dynamic:              false;
+    dynamic:              true;
     scrollbar:            false;
     layout:               vertical;
     reverse:              false;
@@ -66,43 +85,62 @@ listview {
     text-color:           @on-surface;
 }
 
-/* Individual Wallpaper Element Slot */
+/* Wallpaper Card Element */
 element {
     enabled:              true;
     orientation:          vertical;
-    children:             [ "element-icon" ]; /* Only renders the icon, removing the text below */
-    spacing:              0px;
-    padding:              15px;
-    border-radius:        16px;
+    children:             [ "element-icon", "element-text" ];
+    spacing:              8px;
+    padding:              10px;
+    border-radius:        14px;
     border:               2px;
     border-color:         transparent;
     cursor:               pointer;
-    background-color:     transparent;
+    background-color:     @surface-container-low;
     text-color:           @on-surface;
 }
 
-/* Normal State */
 element normal.normal {
-    background-color:     transparent;
+    background-color:     @surface-container-low;
+    text-color:           @on-surface;
 }
 
-/* Selected State Style */
 element selected.normal {
-    background-color:     @bg-alt;     /* Subtle contrast background behind the image */
-    border-color:         @primary;    /* Accent color border around the selection */
+    background-color:     @surface-container-highest;
+    border-color:         @primary;
+    text-color:           @primary;
 }
 
-/* Image Thumbnail Properties */
+element alternate.normal {
+    background-color:     @surface-container-low;
+    text-color:           @on-surface;
+}
+
+/* Thumbnail Image Styling */
 element-icon {
     size:                 200px;
-    cursor:               inherit;
-    border-radius:        12px;        /* Inner rounding for the images */
+    horizontal-align:     0.5;
+    vertical-align:       0.5;
+    border-radius:        10px;
     background-color:     transparent;
     text-color:           inherit;
+    cursor:               inherit;
+}
+
+/* Wallpaper Title Label */
+element-text {
+    horizontal-align:     0.5;
+    vertical-align:       0.5;
+    background-color:     transparent;
+    text-color:           inherit;
+    font:                 "JetBrainsMono Nerd Font 9";
+    cursor:               inherit;
 }
 
 /* Error Handling UI */
 error-message {
+    padding:              15px;
+    border-radius:        14px;
     text-color:           @on-surface;
     background-color:     @surface;
     children:             [ "textbox" ];
@@ -114,5 +152,3 @@ textbox {
     vertical-align:       0.5;
     horizontal-align:     0.5;
 }
-
-

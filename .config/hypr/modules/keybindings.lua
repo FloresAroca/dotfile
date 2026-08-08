@@ -23,7 +23,9 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 -- ---- Terminal Apps ---------------------------------------------------
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(p.terminal .. " --hold fastfetch --config ~/.config/fastfetch/os.jsonc"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(p.terminal .. " --hold cava"))
+hl.bind(mainMod .. " + C",
+  hl.dsp.exec_cmd(p.terminal ..
+  " --class music -o background_opacity=0 -o hide_window_decorations=yes -o confirm_os_window_close=0 --hold cava"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(p.terminal .. " --hold peaclock"))
 
 -- ---- Apps ---------------------------------------------------
@@ -33,8 +35,8 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(p.wallpaper))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/.config/scripts/random-wallpaper.sh"))
 -- ---- Session ------------------------------------------------
 hl.bind(
-	mainMod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+  mainMod .. " + M",
+  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
 -- ---- Focus (arrow keys) -------------------------------------
@@ -45,9 +47,9 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- ---- Workspaces 1–10 ----------------------------------------
 for i = 1, 10 do
-	local key = i % 10 -- workspace 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  local key = i % 10 -- workspace 10 maps to key 0
+  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- ---- Special workspace (scratchpad) -------------------------
